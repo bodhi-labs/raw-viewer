@@ -14,23 +14,55 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## **Next.js Tauri with Shadcn**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# **Next.js**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **Create frontend project with shadcn**
 
-## Learn More
+Run the `init` command to create a new Next.js project or to setup an existing one:
 
-To learn more about Next.js, take a look at the following resources:
+**pnpm**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dlx shadcn@latest init
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+for others package managers and detail process see https://ui.shadcn.com/docs/installation/next
 
-## Deploy on Vercel
+[**Setup (Tauri CLI)**](https://tauri.app/start/create-project/#manual-setup-tauri-cli)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+cargo install tauri-cli --version "^2.0.0" --locked
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### In your project directory, initialize Tauri:
+
+1. [pnpm](https://tauri.app/start/create-project/#tab-panel-1247)
+    
+    ```bash
+    cargo tauri init
+    ```
+    
+    After running the command it will display a prompt asking you for different options:
+    
+    ```bash
+    ✔ What is your app name? tauri-app
+    ✔ What should the window title be? tauri-app
+    ✔ Where are your web assets located? ..
+    ✔ What is the url of your dev server? http://localhost:5173
+    ✔ What is your frontend dev command? pnpm dev
+    ✔ What is your frontend build command? pnpm build
+    ```
+    
+    This will create a `src-tauri` directory in your project with the necessary Tauri configuration files.
+    
+2. Verify your Tauri app is working by running the development server:
+    
+    [**cargo**](https://tauri.app/start/create-project/#tab-panel-1254)
+    
+    ```bash
+    cargo tauri dev
+    ```
+    
+    This command will compile the Rust code and open a window with your web
